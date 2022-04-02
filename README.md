@@ -3,11 +3,10 @@
 <b style="font-size:18px;">Created using Django, GraphQL, and using MongoDB as database.</b>
 
 ## Accessing the application
-<br />
 
-### 1. Clone the application.
+#### 1. Clone the application.
 
-### 2. In the root directory create a virtual environment.
+#### 2. In the root directory create a virtual environment.
 
 ```sh
 pip install virtualenv
@@ -16,13 +15,13 @@ pip install virtualenv
 python -m venv venv
 ```
 
-### 3. Now install the packages required for our project which are available in requirements.txt
+#### 3. Now install the packages required for our project which are available in requirements.txt
 
 ```sh
 pip install -r requirements.txt
 ```
 
-### 4. To run the application
+#### 4. To run the application
 
 ```sh
 python manage.py makemigrations
@@ -36,7 +35,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-### 5. Testing the application
+#### 5. Testing the application
 
 Open postman application to test our endpoint 
 
