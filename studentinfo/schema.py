@@ -9,13 +9,17 @@ class StudentDetailsType(DjangoObjectType):
 
 
 class Query(object):
-  student_details = Field(StudentDetailsType, student_id=Int(required=True))
+  student_details = Field(StudentDetailsType)
 
   #resolve student details by student id
   @staticmethod
   def resolve_student_details(self, info, **kwargs):
-    student_id = kwargs.get('student_id')
-    return StudentDetails.objects.get(student_id=student_id)
+    user = info.context.user
+    if user.is_anonymous:
+      raise Exception('Not logged in!')
+    else:
+      student_id = user.id
+      return StudentDetails.objects.get(student_id=student_id)
 
 
 class AddStudentDetails(Mutation):
@@ -57,5 +61,42 @@ class AddStudentDetails(Mutation):
       )
     
 
+# update student details
+class UpdateStudentDetails(Mutation):
+  student_id = Int()
+  full_name = String()
+  education = String()
+  current_cgpa = Float()
+  experience = String()
+  skills = String()
+
+  class Arguments:
+    education = String(required=True)
+    current_cgpa = String(required=True)
+    experience = String(required=True)
+    skills = String(required=True)
+  
+  @staticmethod
+  def mutate(self, info, **kwargs):
+    # verify auth token
+    user = info.context.user
+    if user.is_anonymous:
+      raise Exception('Not logged in!')
+    else:
+      # get the user id
+      user_id = user.id
+      student_details = StudentDetails.objects.filter(student_id=user_id).update(
+        **kwargs
+      )
+      return UpdateStudentDetails(
+        student_id=student_details.student_id,
+        full_name=student_details.student_full_name,
+        education=student_details.education,
+        current_cgpa=student_details.current_cgpa,
+        experience=student_details.experience,
+        skills=student_details.skills,
+      )
+
 class Mutation(ObjectType):
   add_student_details = AddStudentDetails.Field()
+  update_student_details = UpdateStudentDetails.Field()
