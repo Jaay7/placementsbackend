@@ -19,8 +19,8 @@ jobs:
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
         run:
-          cd placementsbackend
-          echo MONGODB_URI="$MONGODB_URI" >> .env
+          cd placementsbackend &&
+          echo MONGODB_URI="$MONGODB_URI" >> .env &&
           cd ..
         shell: bash
       - name: Start containers
