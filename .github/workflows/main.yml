@@ -21,8 +21,6 @@ jobs:
         run:
           touch ./placementsbackend/.env
           echo MONGODB_URI="$MONGODB_URI" >> ./placementsbackend/.env
-          ls -a
-          cat /placementsbackend/.env
         shell: bash
       - name: Start containers
         run: docker-compose up -d
