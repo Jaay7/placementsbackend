@@ -7,5 +7,7 @@ services:
     container_name: placementsbackend
     volumes:
       - .:/placementsbackend
+    env_file:
+      - ./placementsbackend/.env
     ports:
       - "8000:8000"

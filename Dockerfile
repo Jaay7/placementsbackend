@@ -8,6 +8,8 @@ WORKDIR /placementsbackend
 
 ADD . /placementsbackend/
 
+RUN touch /placementsbackend/.env
+
 RUN pip install -r requirements.txt
 
 # EXPOSE 8000
