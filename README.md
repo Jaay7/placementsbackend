@@ -1,3 +1,5 @@
+[![CI/CD Docker - Django](https://github.com/Jaay7/placementsbackend/actions/workflows/main.yml/badge.svg)](https://github.com/Jaay7/placementsbackend/actions/workflows/main.yml)
+
 # Placements Backend
 
 <b style="font-size:18px;">Created using Django, GraphQL, and using MongoDB as database.</b>
@@ -21,7 +23,15 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-#### 4. To run the application
+#### 4. Create a .env file 
+Naviagte to the placementsbackend folder where settings.py is available
+
+Create a .env file
+```
+MONGODB_URI=<YOUR_MONGODB_URI>
+```
+
+#### 5. To run the application
 
 ```sh
 python manage.py makemigrations
@@ -35,7 +45,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-#### 5. Testing the application
+#### 6. Testing the application
 
 Open postman application to test our endpoint 
 
