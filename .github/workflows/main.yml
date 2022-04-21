@@ -45,7 +45,7 @@ jobs:
             git fetch --all &&
             git reset --hard origin/main &&
             git pull origin main &&
-            sudo systemctl restart docker.service
+            sudo systemctl restart docker.service &&
             sudo docker-compose up -d --build
           '
   
