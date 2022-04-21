@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'users',
     'jobs',
     'studentinfo',
+    'registeredjobs',
     'graphene_django',
     'corsheaders',
 ]

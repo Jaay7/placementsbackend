@@ -3,11 +3,12 @@ import graphene
 import users.schema
 import jobs.schema
 import studentinfo.schema
+import registeredjobs.schema
 
 class Query(users.schema.Query, jobs.schema.Query, studentinfo.schema.Query, graphene.ObjectType):
   pass
 
-class Mutation(users.schema.Mutation, jobs.schema.Mutation, studentinfo.schema.Mutation, graphene.ObjectType):
+class Mutation(users.schema.Mutation, jobs.schema.Mutation, studentinfo.schema.Mutation, registeredjobs.schema.Mutation, graphene.ObjectType):
   pass
 
 
