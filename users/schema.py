@@ -83,8 +83,76 @@ class LoginUser(Mutation):
       password=user.password,
     )
 
+class SaveJob(Mutation):
+  # job = Field(JobsType)
+  response = String()
+
+  class Arguments:
+    job_id = ID(required=True)
+
+  @staticmethod
+  def mutate(self, info, **kwargs):
+    user = info.context.user
+    if user.is_anonymous:
+      raise Exception('Not logged in!')
+    else:
+      User.objects.save_job(user_id = user.id, job_id = kwargs.get('job_id'))
+      return SaveJob( response = "Job saved" )
+
+class RemoveSavedJob(Mutation):
+  # job = Field(JobsType)
+  response = String()
+
+  class Arguments:
+    job_id = ID(required=True)
+
+  @staticmethod
+  def mutate(self, info, **kwargs):
+    user = info.context.user
+    if user.is_anonymous:
+      raise Exception('Not logged in!')
+    else:
+      User.objects.remove_saved_job(user_id = user.id, job_id = kwargs.get('job_id'))
+      return RemoveSavedJob( response = "Job removed" )
+
+class ApplyJob(Mutation):
+  # job = Field(JobsType)
+  response = String()
+
+  class Arguments:
+    job_id = ID(required=True)
+
+  @staticmethod
+  def mutate(self, info, **kwargs):
+    user = info.context.user
+    if user.is_anonymous:
+      raise Exception('Not logged in!')
+    else:
+      User.objects.apply_job(user_id = user.id, job_id = kwargs.get('job_id'))
+      return ApplyJob( response = "Job applied" )
+
+class RemoveAppliedJob(Mutation):
+  # job = Field(JobsType)
+  response = String()
+
+  class Arguments:
+    job_id = ID(required=True)
+
+  @staticmethod
+  def mutate(self, info, **kwargs):
+    user = info.context.user
+    if user.is_anonymous:
+      raise Exception('Not logged in!')
+    else:
+      User.objects.remove_applied_job(user_id = user.id, job_id = kwargs.get('job_id'))
+      return RemoveAppliedJob( response = "Job removed" )
+
 class Mutation(ObjectType):
   register_user = RegisterUser.Field()
   login = graphql_jwt.ObtainJSONWebToken.Field()
   verify_token = graphql_jwt.Verify.Field()
   refresh_token = graphql_jwt.Refresh.Field()
+  save_job = SaveJob.Field()
+  remove_saved_job = RemoveSavedJob.Field()
+  apply_job = ApplyJob.Field()
+  remove_applied_job = RemoveAppliedJob.Field()

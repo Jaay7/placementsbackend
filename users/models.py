@@ -2,6 +2,8 @@ from djongo import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils import timezone
 
+from jobs.models import Jobs
+
 from .manager import UserManager
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -13,6 +15,8 @@ class User(AbstractBaseUser, PermissionsMixin):
   dob = models.DateField(blank=True, null=True)
   mobile = models.CharField(max_length=255, blank=True, null=True)
   is_active = models.BooleanField(default=True)
+  saved_jobs = models.ArrayReferenceField(to=Jobs, blank=True, null=True, related_name='saved_jobs')
+  applied_jobs = models.ArrayReferenceField(to=Jobs, blank=True, null=True, related_name='applied_jobs')
   created_at = models.DateTimeField(default=timezone.now)
   updated_at = models.DateTimeField(default=timezone.now)
 
