@@ -26,6 +26,8 @@ class Jobs(models.Model):
   job_education = models.CharField(max_length=255, blank=True, default='')
   job_skills = models.TextField(blank=True, default='')
   job_start_date = models.CharField(max_length=255, blank=True, default='')
+  saved_by = models.ArrayReferenceField(to='users.User', blank=True, null=True, related_name='saved_by')
+  applied_by = models.ArrayReferenceField(to='users.User', blank=True, null=True, related_name='applied_by')
   job_created_at = models.DateTimeField(default=timezone.now)
   job_updated_at = models.DateTimeField(default=timezone.now)
 

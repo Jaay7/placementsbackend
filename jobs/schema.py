@@ -9,6 +9,8 @@ class JobsType(DjangoObjectType):
 class Query(object):
   jobs = Field(List(JobsType))
   job = Field(JobsType, id=ID(required=True))
+  user_saved_jobs = List(JobsType)
+  user_applied_jobs = List(JobsType)
 
   @staticmethod
   def resolve_jobs(self, info, **kwargs):
@@ -19,6 +21,22 @@ class Query(object):
     if not id:
       raise ValueError('Jobs must have an id')
     return Jobs.objects.get(pk=id)
+
+  @staticmethod
+  def resolve_user_saved_jobs(self, info, **kwargs):
+    user = info.context.user
+    if user.is_anonymous:
+      raise Exception('Not logged in!')
+    else:
+      return user.saved_jobs.all()
+  
+  @staticmethod
+  def resolve_user_applied_jobs(self, info, **kwargs):
+    user = info.context.user
+    if user.is_anonymous:
+      raise Exception('Not logged in!')
+    else:
+      return user.applied_jobs.all()
 
 class AddJob(Mutation):
   job = Field(JobsType)
