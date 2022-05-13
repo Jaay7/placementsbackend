@@ -1,12 +1,9 @@
 {
   "ipcMode": null,
-  "executionRoleArn": "arn:aws:iam::931610654667:role/ecsTaskExecutionRole3",
+  "executionRoleArn": null,
   "containerDefinitions": [
     {
-      "dnsSearchDomains": null,
-      "environmentFiles": null,
       "logConfiguration": null,
-      "entryPoint": null,
       "portMappings": [
         {
           "hostPort": 8000,
@@ -29,7 +26,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "931610654667.dkr.ecr.us-east-1.amazonaws.com/placementsapp",
+      "image": "931610654667.dkr.ecr.us-east-1.amazonaws.com/placementsapp:latest",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -50,7 +47,7 @@
     }
   ],
   "placementConstraints": [],
-  "memory": null,
+  "memory": "512",
   "taskRoleArn": "arn:aws:iam::931610654667:role/ecsTaskExecutionRole3",
   "compatibilities": [
     "EXTERNAL",
@@ -58,33 +55,13 @@
   ],
   "taskDefinitionArn": "arn:aws:ecs:us-east-1:931610654667:task-definition/placementsapp:1",
   "family": "placementsapp",
-  "requiresAttributes": [
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "com.amazonaws.ecs.capability.task-iam-role"
-    },
-    {
-      "targetId": null,
-      "targetType": null,
-      "value": null,
-      "name": "ecs.capability.execution-role-ecr-pull"
-    }
-  ],
   "pidMode": null,
   "requiresCompatibilities": [
     "EXTERNAL"
   ],
   "networkMode": "bridge",
   "runtimePlatform": null,
-  "cpu": null,
+  "cpu": "450",
   "revision": 1,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
