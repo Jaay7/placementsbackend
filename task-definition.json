@@ -1,0 +1,24 @@
+{
+  "containerDefinitions": [
+    {
+      "logConfiguration": null,
+      "entryPoint": null,
+      "portMappings": [
+        {
+          "protocol": "tcp",
+          "containerPort": "80"
+        }
+      ],
+      "cpu": "512",
+      "memory": "512",
+      "essential": true,
+      "image": "931610654667.dkr.ecr.us-east-1.amazonaws.com/placementsapp:latest",
+      "name": "placementsapp"
+    }
+  ],
+  "executionRoleArn": "arn:aws:ecs:us-east-1:931610654667:cluster/placementsapp",
+  "volumes": [],
+  "networkMode": "bridge",
+  "placementConstaints": [],
+  "family": "placementsapp"
+}
