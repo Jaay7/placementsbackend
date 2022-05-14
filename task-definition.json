@@ -53,16 +53,17 @@
     "EXTERNAL",
     "EC2"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:us-east-1:931610654667:task-definition/placementsapp:1",
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:931610654667:task-definition/placementsapp:4",
   "family": "placementsapp",
   "pidMode": null,
   "requiresCompatibilities": [
-    "EXTERNAL"
+    "EXTERNAL",
+    "EC2"
   ],
   "networkMode": "bridge",
   "runtimePlatform": null,
   "cpu": "450",
-  "revision": 1,
+  "revision": 4,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
