@@ -6,7 +6,7 @@
       "logConfiguration": null,
       "portMappings": [
         {
-          "hostPort": 8000,
+          "hostPort": 80,
           "protocol": "tcp",
           "containerPort": 8000
         }
@@ -22,7 +22,7 @@
       "workingDirectory": null,
       "secrets": null,
       "dockerSecurityOptions": null,
-      "memory": 512,
+      "memory": 2048,
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
@@ -47,7 +47,7 @@
     }
   ],
   "placementConstraints": [],
-  "memory": "512",
+  "memory": "2048",
   "taskRoleArn": "arn:aws:iam::931610654667:role/ecsTaskExecutionRole3",
   "compatibilities": [
     "EXTERNAL",
