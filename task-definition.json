@@ -1,24 +1,71 @@
 {
+  "ipcMode": null,
+  "executionRoleArn": null,
   "containerDefinitions": [
     {
       "logConfiguration": null,
-      "entryPoint": null,
       "portMappings": [
         {
+          "hostPort": 80,
           "protocol": "tcp",
-          "containerPort": "80"
+          "containerPort": 8000
         }
       ],
-      "cpu": "512",
-      "memory": "512",
-      "essential": true,
+      "command": null,
+      "linuxParameters": null,
+      "cpu": 0,
+      "environment": [],
+      "resourceRequirements": null,
+      "ulimits": null,
+      "dnsServers": null,
+      "mountPoints": [],
+      "workingDirectory": null,
+      "secrets": null,
+      "dockerSecurityOptions": null,
+      "memory": 2048,
+      "memoryReservation": null,
+      "volumesFrom": [],
+      "stopTimeout": null,
       "image": "931610654667.dkr.ecr.us-east-1.amazonaws.com/placementsapp:latest",
+      "startTimeout": null,
+      "firelensConfiguration": null,
+      "dependsOn": null,
+      "disableNetworking": null,
+      "interactive": null,
+      "healthCheck": null,
+      "essential": true,
+      "links": null,
+      "hostname": null,
+      "extraHosts": null,
+      "pseudoTerminal": null,
+      "user": null,
+      "readonlyRootFilesystem": null,
+      "dockerLabels": null,
+      "systemControls": null,
+      "privileged": null,
       "name": "placementsapp"
     }
   ],
-  "executionRoleArn": "arn:aws:ecs:us-east-1:931610654667:cluster/placementsapp",
-  "volumes": [],
+  "placementConstraints": [],
+  "memory": "2048",
+  "taskRoleArn": "arn:aws:iam::931610654667:role/ecsTaskExecutionRole3",
+  "compatibilities": [
+    "EXTERNAL",
+    "EC2"
+  ],
+  "taskDefinitionArn": "arn:aws:ecs:us-east-1:931610654667:task-definition/placementsapp:4",
+  "family": "placementsapp",
+  "pidMode": null,
+  "requiresCompatibilities": [
+    "EXTERNAL",
+    "EC2"
+  ],
   "networkMode": "bridge",
-  "placementConstaints": [],
-  "family": "placementsapp"
+  "runtimePlatform": null,
+  "cpu": "450",
+  "revision": 4,
+  "status": "ACTIVE",
+  "inferenceAccelerators": null,
+  "proxyConfiguration": null,
+  "volumes": []
 }
