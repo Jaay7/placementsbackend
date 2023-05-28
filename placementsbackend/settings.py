@@ -17,12 +17,9 @@ from django.utils.encoding import force_str
 django.utils.encoding.force_text = force_str
 
 import environ
-import django_heroku
 
 env = environ.Env()
 environ.Env.read_env()
-
-django_heroku.settings(locals())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
